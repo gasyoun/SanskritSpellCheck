@@ -61,14 +61,19 @@ the four are worse than the public page allowed us to assume** — the abstract 
 The order changed once the stylesheet was read: the abstract moved from "likely trim" to a
 **rewrite**, and anonymization from an open question to a **confirmed two-file restructure**.
 
-1. 🔴 **Anonymize for double-blind review** (#5) — the largest single task, and the one most
-   easily missed because the public page never mentions it. Produce **two files**: a Title Page
-   from `IJL Title Page.docx`, and an anonymized main file. Anonymizing means more than the
-   byline: ~40 in-text `github.com/drdhaval2785` / `gasyoun/` links identify the author, and
-   the draft-status notes name internal handoffs. Do **not** substitute "Author" for the name.
-   A blinded variant of the *Data and reproducibility* section is the delicate part — the
-   artifacts must stay verifiable without naming their owner (anonymized-repo or
-   supplementary-file route).
+1. ✅ **Anonymize for double-blind review** (#5) — implemented via four-vector ruling
+   (approved 10-08-2026), **PR [#103](https://github.com/drdhaval2785/SanskritSpellCheck/pull/103)**:
+   (1) frontmatter author → Title Page; (2) `sanskrit-lexicon/csl-orig` → KEPT (third-party
+   org); (3) CORRECTIONS #447 (×3) → withheld (issue author is paper author); (4) 35 relative
+   `../` paths → Supplementary Online Material. The anonymized main file and Title Page are
+   **DERIVED** via [build_a44_anonymous.py](https://github.com/drdhaval2785/SanskritSpellCheck/blob/h2407c-anonymize/papers/build_a44_anonymous.py),
+   never hand-edited; regeneration is one command, staleness is a CI-wired test failure. Three
+   outputs: [A44_ijl_main_anonymous.md](https://github.com/drdhaval2785/SanskritSpellCheck/blob/h2407c-anonymize/papers/A44_ijl_main_anonymous.md)
+   (submission main), [A44_ijl_title_page.md](https://github.com/drdhaval2785/SanskritSpellCheck/blob/h2407c-anonymize/papers/A44_ijl_title_page.md),
+   [A44_ijl_supplementary_index.md](https://github.com/drdhaval2785/SanskritSpellCheck/blob/h2407c-anonymize/papers/A44_ijl_supplementary_index.md)
+   (24 files, all directly cited). **One reproducibility gap surfaced:**
+   `detectors/combined_candidates.txt` is generated + `.gitignore`'d, so it must be
+   regenerated before packaging.
 2. 🔴 **Rewrite the abstract to ≤150 words**, one paragraph, impersonal register (#3). It is
    currently 329 words, so this is a rewrite, not a trim. Row 2 gives ~2,100 words of headroom,
    so displaced content can move into §1 rather than being lost.

@@ -1,10 +1,13 @@
 # CLAUDE.md
 
+_Created: 04-07-2026 · Last updated: 30-10-2026_
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 > Org-level conventions (issue taxonomy, `.ai_state.md` session protocol, the
-> `csl-orig` correction workflow, Windows/encoding rules) live in the parent
-> [GitHub/CLAUDE.md](../CLAUDE.md) and are **not** repeated here. This file covers
+> `csl-orig` correction workflow, Windows/encoding rules) live in the org spine
+> [github-spine/CLAUDE.md](https://github.com/gasyoun/github-spine/blob/main/CLAUDE.md)
+> and are **not** repeated here. This file covers
 > only what is specific to SanskritSpellCheck.
 
 ## What this repo is
@@ -161,8 +164,12 @@ cd o_vs_O && sh composite.sh         # best path: composite report from o_vs_O2.
 cd ngram && python ngramspellcheck.py data/test.txt data/error.txt 2
 ```
 
-There is no build, no test suite, and no package manifest — the "tests" are the
-generated suspect lists, verified by human reviewers against the scanned dictionaries.
+There is no build step. Since v1.58.0 (31-07-2026) there is a test suite —
+pytest under `tests/` plus `detectors/test_triage.py`, run by
+`.github/workflows/ci.yml` on Python 3.11/3.14 — and package manifests
+([requirements.txt](requirements.txt), `requirements-dev.txt`). The generated
+suspect lists are additionally verified by human reviewers against the scanned
+dictionaries.
 All PHP pipelines and Python helpers run under PHP 8 / Python 3 (see below).
 
 ## Runtime & porting status
